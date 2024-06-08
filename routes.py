@@ -33,6 +33,7 @@ def init_routes(app):
         cursos  = load_json(cursos_file)
         novo_curso = Curso(id=len(cursos) + 1, nome=data['nome'])
         cursos.append(novo_curso.to_dict())
+        save_json(cursos_file, cursos)
         return jsonify({"message":"Curso criado com sucesso!"}), 201
     
     
